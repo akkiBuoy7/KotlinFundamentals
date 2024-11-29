@@ -59,7 +59,7 @@ fun main(args:Array<String>) {
     teslaVehicle1.runsOn() // directly calls the interface method implementation.
 
     val tesla3 = Tesla3(ElectricVehicle("with delegation"))
-    tesla3.transmissionOn() // changing parent method after deligating and overriding
+    tesla3.transmissionOn() // changing parent method after delegating and overriding
 
 
     val tesla4 = Tesla4()

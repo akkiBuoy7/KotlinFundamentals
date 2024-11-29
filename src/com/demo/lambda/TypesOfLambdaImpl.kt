@@ -16,7 +16,7 @@ class Adapter2{
 }
 
 // implementing lambda as constructor parameter
-class Adapter3(val action : ((Int,String) -> Unit)? = null){
+class Adapter3(private val  action : ((Int, String) -> Unit)? = null){
     fun onViewInteraction(pos:Int,){
         action?.invoke(pos,"View Clicked at")
     }
@@ -41,16 +41,15 @@ fun main(){
 
     // invoking as method param
     val adapter2 = Adapter2()
-    adapter2.onViewInteraction(5,{pos,str ->
-       println("$str $pos")
-    })
+    adapter2.onViewInteraction(5) { pos, str ->
+        println("$str $pos")
+    }
 
 
     // invoking as constructor param
-    val adapter3 = Adapter3({
-        pos,str ->
+    val adapter3 = Adapter3 { pos, str ->
         println("$str $pos")
-    })
+    }
     adapter3.onViewInteraction(3)
 
     // invoking lambda as return type of a function
